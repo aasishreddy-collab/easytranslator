@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: easy-translate
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MANUS_API_URL
+        sync: false
+      - key: MANUS_API_KEY
+        sync: false
